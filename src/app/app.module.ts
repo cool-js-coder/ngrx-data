@@ -12,8 +12,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { EffectsModule } from '@ngrx/effects';
-import { EntityDataModule, EntityDataService } from '@ngrx/data';
+import { DefaultDataServiceConfig, EntityDataModule, EntityDataService } from '@ngrx/data';
 import { ReactiveFormsModule } from '@angular/forms';
+
+const defaultDataService: DefaultDataServiceConfig = {
+  root: 'https://vue-completecourse.firebaseio.com'
+}
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -28,7 +32,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     EffectsModule.forRoot([]),
     EntityDataModule.forRoot({}),
   ],
-  providers: [],
+  providers: [
+    { provide: DefaultDataServiceConfig, useValue: defaultDataService}
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

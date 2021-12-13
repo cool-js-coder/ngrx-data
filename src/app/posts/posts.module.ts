@@ -19,18 +19,18 @@ const routes: Routes = [
   {
     path: '',
     component: PostsListComponent,
-    resolve: { posts: PostsResolver },
+    
   },
   { path: 'add', component: AddPostComponent },
   {
     path: 'edit/:id',
     component: EditPostComponent,
-    resolve: { posts: PostsResolver },
+    
   },
   {
     path: 'details/:id',
     component: SinglePostComponent,
-    resolve: { posts: PostsResolver },
+    
   },
 ];
 

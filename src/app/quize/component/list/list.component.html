@@ -1,0 +1,32 @@
+<div>
+    <h3>Quize List</h3>
+    <hr />
+  </div>
+  
+  <div>
+    <a [routerLink]="['/quize', 'add']">Add Quize</a>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let qui of quize$ | async">
+        <td>{{ qui.id }}</td>
+        <td>{{ qui.title }}</td>
+        <td>{{ qui.description }}</td>
+        <td>
+          <a [routerLink]="['/quize', 'edit', qui.id]">Edit Quize</a>&nbsp;
+          <a href="" (click)="onDeletePost($event, qui.id)">Delete Quize</a>&nbsp;
+          <a [routerLink]="['/quize', 'details', qui.id]">View Details</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

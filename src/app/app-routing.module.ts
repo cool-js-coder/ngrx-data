@@ -9,6 +9,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./posts/posts.module').then((m) => m.PostsModule),
   },
+  {
+    path: 'quize',
+    loadChildren: () =>
+      import('./quize/quize.module').then((m) => m.QuizeModule),
+  },
 ];
 
 @NgModule({

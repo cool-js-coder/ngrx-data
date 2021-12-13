@@ -14,7 +14,7 @@ export class PostsDataService extends DefaultDataService<Post> {
 
   getAll(): Observable<Post[]> {
     return this.http
-      .get(`https://vue-completecourse.firebaseio.com/posts.json`)
+      .get(`/posts.json`)
       .pipe(
         map((data) => {
           const posts: Post[] = [];
@@ -29,7 +29,7 @@ export class PostsDataService extends DefaultDataService<Post> {
   add(post: Post): Observable<Post> {
     return this.http
       .post<{ name: string }>(
-        `https://vue-completecourse.firebaseio.com/posts.json`,
+        `/posts.json`,
         post
       )
       .pipe(
@@ -41,14 +41,14 @@ export class PostsDataService extends DefaultDataService<Post> {
 
   update(post: Update<Post>): Observable<Post> {
     return this.http.put<Post>(
-      `https://vue-completecourse.firebaseio.com/posts/${post.id}.json`,
+      `/posts/${post.id}.json`,
       { ...post.changes }
     );
   }
 
   delete(id: string): Observable<string> {
     return this.http
-      .delete(`https://vue-completecourse.firebaseio.com/posts/${id}.json`)
+      .delete(`/posts/${id}.json`)
       .pipe(
         map((data) => {
           return id;
